@@ -1,33 +1,35 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using server_2._2.Data;
-using server_2._2.Models;
 using System;
 using System.Linq;
+using server_2._2.Data;
+using server_2._2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace server_2._2.Controllers
 {
     [Route("api/[controller]")]
+     
     [ApiController]
     public class BlogApi : ControllerBase
     {
-        public readonly MyDbContext _db;
+        public readonly MyDbContext context;
         public BlogApi(MyDbContext db)
         {
-            _db = db;
+            context = db;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var blogs = _db.Blogs.ToList();
+            var blogs = context.Blogs.ToList();
             return Ok(blogs);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
-            var blogCurrent = _db.Blogs.FirstOrDefault(blog => blog.Id == Guid.Parse(id));
+            var blogCurrent = context.Blogs.FirstOrDefault(blog => blog.Id == Guid.Parse(id));
             if (blogCurrent != null)
             {
                 return Ok(blogCurrent);
@@ -36,21 +38,22 @@ namespace server_2._2.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(BlogModel blog)
         {
+            var newBlog = new Blog
+            {
+                Id = Guid.NewGuid(),
+                Title = blog.Title,
+                Author = blog.Author,
+                ImageURL = blog.ImageUrl,
+                Description = blog.Description
+            };
             try
             {
-                var blogNew = new Blog
-                {
-                    Id = Guid.NewGuid(),
-                    Title = blog.Title,
-                    Author = blog.Author,
-                    ImageURL = blog.ImageUrl,
-                    Description = blog.Description
-                };
-                _db.Add(blogNew);
-                _db.SaveChanges();
-                return Ok(blogNew);
+                context.Add(newBlog);
+                context.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, newBlog);
             }
             catch
             {
@@ -59,28 +62,28 @@ namespace server_2._2.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(string id, BlogModel blogUd)
+        public IActionResult Update(string id, BlogModel blogModel)
         {
-            var blogCurrent = _db.Blogs.SingleOrDefault(blog => blog.Id == Guid.Parse(id));
+            var blogCurrent = context.Blogs.FirstOrDefault(blog => blog.Id == Guid.Parse(id));
             if (blogCurrent != null)
             {
-                blogCurrent.Title = blogUd.Title;
-                blogCurrent.Description = blogUd.Description;
-                blogCurrent.ImageURL = blogUd.ImageUrl;
-                _db.SaveChanges();
+                blogCurrent.Title = blogModel.Title;
+                blogCurrent.Description = blogModel.Description;
+                blogCurrent.ImageURL = blogModel.ImageUrl;
+                context.SaveChanges();
                 return NoContent();
-            }
-            return NotFound();
+            } 
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var blogCurrent = _db.Blogs.SingleOrDefault(blog => blog.Id == Guid.Parse(id));
+            var blogCurrent = context.Blogs.FirstOrDefault(blog => blog.Id == Guid.Parse(id));
             if (blogCurrent != null)
             {
-                _db.Remove(blogCurrent);
-                _db.SaveChanges();
+                context.Remove(blogCurrent);
+                context.SaveChanges();
 
             }
             return NoContent();

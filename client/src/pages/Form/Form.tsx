@@ -1,9 +1,11 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { New } from '../../@types';
 import newApi from '../../apis/new.api';
+import { AppContext } from '../../app.context';
 import Input from '../../components/Input';
 import Label from '../../components/Label';
 
@@ -17,6 +19,7 @@ const formDefault: FormState = {
 };
 
 const Form = () => {
+	const { auth } = useContext(AppContext);
 	const navigate = useNavigate();
 	const [queryParams] = useSearchParams();
 	const qrId = queryParams.get('id');
@@ -25,7 +28,7 @@ const Form = () => {
 		defaultValues: formDefault,
 	});
 	const mutateCreateNew = useMutation({
-		mutationFn: (body: FormState) => newApi.createNew(body),
+		mutationFn: newApi.createNew,
 	});
 	const newItemQuery = useQuery({
 		queryKey: ['new', qrId],
@@ -60,7 +63,7 @@ const Form = () => {
 	});
 
 	return (
-		<div className='my-4'>
+		<div className='container my-4'>
 			<h2 className='mb-4 text-center text-xl font-semibold text-blue-500'>
 				{qrId ? 'Update New' : 'Create New'}
 			</h2>

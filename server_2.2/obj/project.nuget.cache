@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LaLain/bV6sJUdP1nyrz5HbhQw41WT2rx0nT7ajjOJuxd2cHs1XRV5ntEalKHddqPJtxOWHC8O8OP5E8DCLTnw==",
+  "dgSpecHash": "lxxC+r+WthmB0ijYPG6LQzA9wc4501ASDUMoG/nmI6/cWxgJ+uIeuI1rvpqlLmxVKiM4iNc6ss54NVULnmqZjQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\This MC\\Desktop\\workspace\\test\\server_2.2\\server_2.2.csproj",
+  "projectFilePath": "C:\\Users\\This MC\\Desktop\\workspace\\test\\server_2.2\\server_2.2.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

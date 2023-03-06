@@ -1,9 +1,13 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import newApi from '../../apis/new.api';
+import { useContext } from 'react';
+import { AppContext } from '../../app.context';
+import authApi from '../../apis/auth.api';
 
 const Blogs = () => {
+	const { auth } = useContext(AppContext);
 	const navigate = useNavigate();
 	const newsQuery = useQuery({
 		queryKey: ['news'],
@@ -35,6 +39,10 @@ const Blogs = () => {
 		});
 	};
 	const newsList = newsQuery.data?.data || [];
+	if (!auth) {
+		return <Navigate to={'/login'} />;
+	}
+
 	return (
 		<div className='container mt-8'>
 			<div className=' mb-3 grid grid-cols-12 rounded-sm bg-white py-[18px] px-10 shadow'>

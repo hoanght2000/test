@@ -12,7 +12,7 @@ const Home = () => {
 	const newsList = newsQuery.data?.data || [];
 
 	return (
-		<div>
+		<div className='container'>
 			<Banner data={newsList} />
 			<NewSlide data={newsList} />
 		</div>

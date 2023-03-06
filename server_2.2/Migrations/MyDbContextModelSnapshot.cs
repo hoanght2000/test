@@ -35,6 +35,22 @@ namespace server_2._2.Migrations
 
                     b.ToTable("Blogs");
                 });
+
+            modelBuilder.Entity("server_2._2.Data.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Mail")
+                        .IsRequired();
+
+                    b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
 #pragma warning restore 612, 618
         }
     }

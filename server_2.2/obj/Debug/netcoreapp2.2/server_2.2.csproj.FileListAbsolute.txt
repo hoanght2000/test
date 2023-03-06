@@ -17,7 +17,6 @@ C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\serve
 C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\server_2.2.runtimeconfig.dev.json
 C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\server_2.2.dll
 C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\server_2.2.pdb
-C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.csprojAssemblyReference.cache
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.csproj.CoreCompileInputs.cache
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.RazorAssemblyInfo.cache
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.RazorAssemblyInfo.cs
@@ -26,3 +25,8 @@ C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\serve
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.RazorTargetAssemblyInfo.cache
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.dll
 C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.pdb
+C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\This MC\Desktop\workspace\test\server_2.2\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.csproj.AssemblyReference.cache
+C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\This MC\Desktop\workspace\test\server_2.2\obj\Debug\netcoreapp2.2\server_2.2.genruntimeconfig.cache
